@@ -1,0 +1,237 @@
+.fish {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 400px;
+    position: relative;
+
+    &__body {
+        width: 272px;
+        height: 156px;
+        border-radius: 50%;
+        background-color: $blue;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    &__mounth {
+        &::after, &::before {
+            content: "";
+            background-color: $darkBlue;
+            position: absolute;
+            animation-iteration-count: infinite;
+            animation-duration: 1.5s;
+            border-radius: 50%;
+        }
+
+        &::after {
+            width: 31px;
+            height: 20px;
+            top: 59px;
+            left: -13px;
+            transform: rotate(26deg);
+            animation-name: mounth-top-animation;
+        }
+
+        &::before {
+            width: 31px;
+            height: 20px;
+            top: 66px;
+            left: -13px;
+            transform: rotate(-26deg);
+            animation-name: mounth-bottom-animation;
+        }
+    }
+
+    &__pectoral-fin {
+        border-right: 22px solid $darkBlue;
+        left: 41px;
+        width: 144px;
+        height: 108px;
+        margin-top: auto;
+        margin-bottom: auto;
+        top: 0;
+        bottom: 0;
+        animation-name: pectoral-fin-animation;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+
+
+    &__first-dorsal-fin::after,
+    &__first-dorsal-fin::before,
+    &__second-dorsal-fin::after,
+    &__second-dorsal-fin::before {
+        content: '';
+        width: 130px;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        left: 90px;
+        background-color: $darkBlue;
+        z-index: -1;
+    }
+    
+    &__first-dorsal-fin {
+        &::after {
+            top: -13px;
+            transform: rotate(-25deg);
+        }
+
+        &::before {
+            top: -10px;
+            transform: rotate(-51deg);
+            opacity: .8;
+        }
+    }
+
+    &__second-dorsal-fin {
+        &::after, &::before {
+            opacity: .8;
+        }
+
+        &::after {
+            top: -2px;
+            left: 76px;
+            transform: rotate(-75deg);
+        }
+
+        &::before {
+            top: 1px;
+            left: 66px;
+            transform: rotate(-101deg);
+        }
+    }
+
+    &__eye {
+        width: 20px;
+        height: 20px;
+        left: 37px;
+        position: absolute;
+        top: 40px;
+        margin-top: auto;
+        margin-bottom: auto;
+        background-color: $white;
+        border-radius: 50%;
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            margin-top: auto;
+            margin-bottom: auto;
+            border-radius: 50%;
+        }
+
+        &::before {
+            width: 15px;
+            height: 15px;
+            left: 4px;
+            top: 2px;
+            background-color: $black;
+        }
+
+        &::after  {
+            width: 5px;
+            height: 5px;
+            left: 7px;
+            top: 3px;
+            background-color: $white;
+        }
+    }
+
+    &__tile {
+        &::after, &::before {
+            content: '';
+        }
+
+        &::after, &::before, span {
+            width: 120px;
+            height: 72px;
+            background-color: $darkBlue;
+            z-index: -1;
+        }
+
+        &::after {
+            top: 124px;
+            right: -10px;
+            transform: rotate(-30deg);
+            opacity: .9;
+        }
+
+        &::before {
+            top: 155px;
+            right: -14px;
+            transform: rotate(3deg);
+            opacity: .8;
+        }
+
+        span {
+            top: 181px;
+            right: -9px;
+            transform: rotate(38deg);
+        }
+    }
+
+    &__pectoral-fin,
+    &__first-dorsal-fin::after,
+    &__first-dorsal-fin::before,
+    &__second-dorsal-fin::after,
+    &__second-dorsal-fin::before,
+    &__tile::after, 
+    &__tile::before,
+    &__tile span {
+        border-radius: 50%;
+        position: absolute;
+    }
+}
+
+
+@keyframes pectoral-fin-animation {
+    0% {
+        border-right: 22px solid $darkBlue;
+        width: 144px;
+    }
+
+    50% {
+        border-right: 28px solid $darkBlue;
+        width: 132px;
+    }
+
+    100% {
+        border-right: 22px solid $darkBlue;
+        width: 144px;
+    }
+}
+
+@keyframes mounth-top-animation {
+    0% {
+        transform: rotate(26deg);
+    }
+
+    50% {
+        transform: rotate(50deg);
+    }
+
+    100% {
+        transform: rotate(26deg);
+    }
+}
+
+@keyframes mounth-bottom-animation {
+    0% {
+        transform: rotate(-26deg);
+    }
+
+    50% {
+        transform: rotate(-50deg);
+    }
+
+    100% {
+        transform: rotate(-26deg);
+    }
+}
